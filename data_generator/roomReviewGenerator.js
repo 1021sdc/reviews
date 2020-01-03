@@ -10,7 +10,7 @@ const { reviewGenerator } = require('./reviewGenerator.js');
 const roomReviewGenerator = function (numOfRoom) {
   let res = [];
   for (let i = 0; i < numOfRoom; i += 1) {
-    let numOfReviews = casual.integer(from = 3, to = 500);
+    let numOfReviews = casual.integer(from = 3, to = 20);
     let room_id = i + 1;
     res.push({ room_id, reviews: reviewGenerator(numOfReviews) });
   }

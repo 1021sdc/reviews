@@ -5,17 +5,24 @@ const { Reviews } = require('./schema.js');
 
 // mongoose.connect('mongodb://localhost:27017/airbnb', { useNewUrlParser: true });
 
-const dataSize = 10000000;
 function fileWriteSync(filePath) {
     const fd = fs.openSync(filePath, 'w');
-    for (let i = 0; i < dataSize; i++) {
+    for (let i = 0; i < 10000000; i++) {
         let data = JSON.stringify(roomReviewGenerator(1));
-        fs.writeSync(fd, i + data + '\n', null, null);
+        fs.writeSync(fd, data + '\n', null, null);
     }
     fs.closeSync(fd);
 }
-fileWriteSync('PostgreSQLData.csv');
-fileWriteSync('CassandraData.csv');
+fileWriteSync('datatest1.csv');
+
+// db commands
+
+// create database airbnb;
+// create table reviews ( room_id serial, reviews text);
+// copy reviews(reviews) from '/Users/sayertindall/documents/SDC/Airbnb-reviews/datatest.csv' with delimiter '+';
+// docker run -it --rm --link some-postgres:postgres postgres psql -h postgres -U postgres -v /Users/sayertindall/Documents/data:/src/data
+
+// fileWriteSync('CassandraData.csv');
 
 // Reviews.collection.drop(() => {});
 // console.log("Updating Database...");

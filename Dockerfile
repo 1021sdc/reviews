@@ -11,4 +11,4 @@ RUN npm install
 
 EXPOSE 3004
 
-CMD [ "npm", "run", "review-server" ]
+CMD [ "npm", "start" ]

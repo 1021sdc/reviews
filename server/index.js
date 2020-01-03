@@ -1,3 +1,4 @@
+require('newrelic');
 const mongoose = require('mongoose');
 const db = require('../database/schema.js');
 const express = require('express');
@@ -38,7 +39,8 @@ app.route('/reviews/:room_id')
       client
           .query(q)
           .then((data) => {
-              res.status(200).send(data.rows[0])
+              // console.log(data.rows[0]);
+              res.status(200).send(data.rows[0].reviews)
           })
           .catch(e => console.error(e.stack))
           // .then(() => client.end())
