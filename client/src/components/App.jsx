@@ -35,8 +35,8 @@ class App extends React.Component {
         });
         this.findOverallRating(response.data[0].reviews);
       })
-      .catch(() => {
-        console.log("error");
+      .catch((err) => {
+        console.error(err);
       });
 
   };

@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const fs = require('fs');
-const { roomReviewGenerator } = require('../data_generator/roomReviewGenerator');
-const { Reviews } = require('./schema.js');
+// const mongoose = require('mongoose');
+// const fs = require('fs');
+// const { roomReviewGenerator } = require('../data_generator/roomReviewGenerator');
+// const { Reviews } = require('./schema.js');
 
 // mongoose.connect('mongodb://localhost:27017/airbnb', { useNewUrlParser: true });
 

@@ -35,16 +35,16 @@ app.use(express.static(`${__dirname}/../client/dist`));
 
 app.route('/reviews/:room_id')
     .get((req, res) => {
-      const q = `SELECT reviews FROM reviews WHERE room_id = ${req.params.room_id};`;
-      client
-          .query(q)
-          .then((data) => {
-              // console.log(data.rows[0]);
-              res.status(200).send(data.rows[0].reviews)
-          })
-          .catch(e => console.error(e.stack))
-          // .then(() => client.end())
-});
+        const q = `SELECT reviews FROM reviews WHERE room_id = ${req.params.room_id};`;
+        client
+            .query(q)
+            .then((data) => {
+                res.status(200).send(data.rows[0])
+            })
+            .catch(e => console.error(e.stack))
+        // .then(() => client.end())
+    });
+
 
 app.listen(PORT, ()=>{
   console.log("Server is now listening on port:", PORT);
